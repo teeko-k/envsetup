@@ -107,4 +107,4 @@ alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 # antigen theme denysdovhan/spaceship-prompt
 # ADDED by AHMED KASSEM
 [[ "$TERM" == "xterm" ]] && export TERM=xterm-256color
-DEFAULT_USER="whoami"
+DEFAULT_USER=`whoami`
