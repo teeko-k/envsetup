@@ -2,18 +2,17 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/akassem3/.oh-my-zsh"
-
+export ZSH="/Users/ahmedkassem/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # ZSH_THEME="robbyrussell"
-# ZSH_THEME="spaceship"
-ZSH_THEME="agnoster"
-# ZSH_THEME=""
-
+ZSH_THEME=""
+# ZSH_THEME="agnoster"
+autoload -U promptinit; promptinit
+prompt pure
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -30,6 +29,9 @@ ZSH_THEME="agnoster"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to automatically update without prompting.
+# DISABLE_UPDATE_PROMPT="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
@@ -67,11 +69,17 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(
+  git
+  zsh-256color
+)
 
 source $ZSH/oh-my-zsh.sh
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # User configuration
+export DEFAULT_USER=`whoami`
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -88,9 +96,6 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -99,12 +104,24 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 
-# autoload -U promptinit; promptinit
-# prompt spaceship
+# [[ "$TERM" == "xterm" ]] && export TERM=xterm-256color
 
-# antigen theme denysdovhan/spaceship-prompt
-# ADDED by AHMED KASSEM
-[[ "$TERM" == "xterm" ]] && export TERM=xterm-256color
-DEFAULT_USER=`whoami`
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+# export PATH="/usr/local/opt/node@8/bin:$PATH"
+
+# FOR PYTHON 3.8
+alias python=/usr/local/bin/python3
+# export PATH="/usr/local/opt/python@3.9/bin:$PATH"
+# export LDFLAGS="-L/usr/local/opt/python@3.9/lib"
+# export PKG_CONFIG_PATH="/usr/local/opt/python@3.9/lib/pkgconfig"
+
+# Path for Homebrew
+
+# path for Mongo
+export MONGO_PATH=/usr/local/mongodb
+export PATH=$PATH:$MONGO_PATH/bin
+
+
+export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/bin:$PATH"
